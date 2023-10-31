@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://ch635emff8osj"]
+
+[ext_resource type="Script" path="res://player_characters/player_character_one/chain/chain.gd" id="1_csw44"]
+[ext_resource type="Texture2D" uid="uid://bjdk2qfb54ptd" path="res://icon.svg" id="2_yttp5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lc37p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qd63n"]
+
+[node name="chain" type="Node2D"]
+script = ExtResource("1_csw44")
+
+[node name="links" type="Sprite2D" parent="."]
+texture = ExtResource("2_yttp5")
+
+[node name="tip" type="CharacterBody2D" parent="."]
+
+[node name="hook" type="Sprite2D" parent="tip"]
+texture = ExtResource("2_yttp5")
+
+[node name="collision" type="CollisionShape2D" parent="tip"]
+shape = SubResource("CircleShape2D_lc37p")
+
+[node name="area" type="Area2D" parent="tip"]
+
+[node name="collision" type="CollisionShape2D" parent="tip/area"]
+shape = SubResource("CircleShape2D_qd63n")

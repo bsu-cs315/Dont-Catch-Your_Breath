@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://sjlicaredsrc"]
+
+[ext_resource type="Script" path="res://player_characters/player_character_one/player_character_one.gd" id="1_tdidt"]
+[ext_resource type="Texture2D" uid="uid://bjdk2qfb54ptd" path="res://icon.svg" id="2_sdatt"]
+[ext_resource type="PackedScene" uid="uid://ch635emff8osj" path="res://player_characters/player_character_one/chain/chain.tscn" id="3_1kbj2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbkf3"]
+
+[node name="player_character_one" type="CharacterBody2D"]
+script = ExtResource("1_tdidt")
+
+[node name="camera" type="Camera2D" parent="."]
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_sdatt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fbkf3")
+
+[node name="chain" parent="." instance=ExtResource("3_1kbj2")]
