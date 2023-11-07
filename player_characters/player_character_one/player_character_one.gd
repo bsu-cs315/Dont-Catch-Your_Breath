@@ -17,7 +17,7 @@ func game_over():
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed:
-#			$grapple_shot.play()
+			$grapple_shot.play()
 			$chain.shoot(event.position - get_viewport().size * 0.5)
 
 		else:
@@ -77,9 +77,9 @@ func _physics_process(_delta: float) -> void:
 	
 	if Input.is_action_just_pressed("jump"):
 		if grounded:
-#			$jump.play()
+#			
 			velocity.y = -JUMP_FORCE	
 		elif can_jump:
-#			$jump.play()
+#			
 			can_jump = false	
 			velocity.y = -JUMP_FORCE

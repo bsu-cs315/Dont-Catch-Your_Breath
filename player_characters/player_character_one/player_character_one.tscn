@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://sjlicaredsrc"]
+[gd_scene load_steps=7 format=3 uid="uid://sjlicaredsrc"]
 
 [ext_resource type="Script" path="res://player_characters/player_character_one/player_character_one.gd" id="1_tdidt"]
 [ext_resource type="Texture2D" uid="uid://bjdk2qfb54ptd" path="res://icon.svg" id="2_6pbfe"]
 [ext_resource type="Script" path="res://player_characters/player_character_one/camera.gd" id="2_teku7"]
 [ext_resource type="PackedScene" uid="uid://ch635emff8osj" path="res://player_characters/player_character_one/chain/chain.tscn" id="3_1kbj2"]
+[ext_resource type="AudioStream" uid="uid://d4hoqlen3s4d0" path="res://player_characters/player_character_one/chain/grapple_shot.wav" id="5_ttgs7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbkf3"]
 
@@ -22,3 +23,6 @@ texture = ExtResource("2_6pbfe")
 shape = SubResource("RectangleShape2D_fbkf3")
 
 [node name="chain" parent="." instance=ExtResource("3_1kbj2")]
+
+[node name="grapple_shot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ttgs7")

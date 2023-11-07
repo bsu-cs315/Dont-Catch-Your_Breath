@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://do0vhjq2lm32g"]
+[gd_scene load_steps=3 format=3 uid="uid://do0vhjq2lm32g"]
 
 [ext_resource type="Script" path="res://objects/spawner.gd" id="1_2j0h4"]
+[ext_resource type="AudioStream" uid="uid://dnagd7ayt54kr" path="res://menus/start.wav" id="2_w5ya3"]
 
 [node name="spawner" type="Node2D"]
 script = ExtResource("1_2j0h4")
@@ -8,3 +9,10 @@ script = ExtResource("1_2j0h4")
 [node name="enemies" type="Node" parent="."]
 
 [node name="sprite" type="Sprite2D" parent="."]
+
+[node name="enemy_counter_label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="win_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_w5ya3")

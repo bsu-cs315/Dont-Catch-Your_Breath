@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhapwbysq52si"]
+
+[ext_resource type="Script" path="res://menus/menu.gd" id="1_ln31l"]
+[ext_resource type="Texture2D" uid="uid://dmve2s28ftxs0" path="res://dont_catch_your_breath_project_one_page.png" id="2_n2c1n"]
+[ext_resource type="AudioStream" uid="uid://cvqqf4saujfb7" path="res://environment/bgmusic (2).ogg" id="3_levsu"]
+[ext_resource type="AudioStream" uid="uid://dnagd7ayt54kr" path="res://menus/start.wav" id="4_3herh"]
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ln31l")
+
+[node name="margin_container" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 582.0
+offset_top = 611.0
+offset_right = 623.0
+offset_bottom = 677.0
+
+[node name="vbox" type="VBoxContainer" parent="margin_container"]
+layout_mode = 2
+
+[node name="play" type="Button" parent="margin_container/vbox"]
+layout_mode = 2
+text = "play"
+
+[node name="quit" type="Button" parent="margin_container/vbox"]
+layout_mode = 2
+text = "quit
+"
+
+[node name="bg" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1566, 1048)
+scale = Vector2(2, 2)
+texture = ExtResource("2_n2c1n")
+
+[node name="bgmusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_levsu")
+volume_db = -3.748
+autoplay = true
+
+[node name="start_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_3herh")
+volume_db = 5.622
+
+[connection signal="pressed" from="margin_container/vbox/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="margin_container/vbox/quit" to="." method="_on_quit_pressed"]

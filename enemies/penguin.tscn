@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://daj8lxcmoqvyx"]
+[gd_scene load_steps=6 format=3 uid="uid://daj8lxcmoqvyx"]
 
 [ext_resource type="Texture2D" uid="uid://bjdk2qfb54ptd" path="res://icon.svg" id="1_ef7w0"]
 [ext_resource type="Script" path="res://enemies/penguin.gd" id="1_fjfwi"]
+[ext_resource type="AudioStream" uid="uid://bdnbtd4rccjsh" path="res://enemies/death.wav" id="3_4cq67"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nehnf"]
 
@@ -26,5 +27,8 @@ collision_mask = 6
 
 [node name="collision" type="CollisionShape2D" parent="area"]
 shape = SubResource("RectangleShape2D_mp2hn")
+
+[node name="death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_4cq67")
 
 [connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]
