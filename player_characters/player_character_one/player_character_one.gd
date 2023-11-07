@@ -14,7 +14,8 @@ var can_jump = false
 func game_over():
 		get_tree().change_scene_to_file("res://world/world.tscn")
 		
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
+	print(event)
 	if event is InputEventMouseButton:
 		if event.pressed:
 #			$grapple_shot.play()
@@ -75,11 +76,11 @@ func _physics_process(_delta: float) -> void:
 			velocity.y *= FRICTION_AIR
 
 	
-	if Input.is_action_just_pressed("jump"):
-		if grounded:
-#			$jump.play()
-			velocity.y = -JUMP_FORCE	
-		elif can_jump:
-#			$jump.play()
-			can_jump = false	
-			velocity.y = -JUMP_FORCE
+#	if Input.is_action_just_pressed("jump"):
+#		if grounded:
+##			$jump.play()
+#			velocity.y = -JUMP_FORCE	
+#		elif can_jump:
+##			$jump.play()
+#			can_jump = false	
+#			velocity.y = -JUMP_FORCE
