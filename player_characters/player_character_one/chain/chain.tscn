@@ -8,7 +8,7 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qd63n"]
 
-[node name="chain" type="Node2D"]
+[node name="chain" type="Node2D" groups=["hook"]]
 script = ExtResource("1_csw44")
 
 [node name="links" type="Sprite2D" parent="."]
@@ -20,8 +20,9 @@ offset = Vector2(-16, 5)
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 360)
 
-[node name="tip" type="CharacterBody2D" parent="."]
+[node name="tip" type="CharacterBody2D" parent="." groups=["hook"]]
 collision_layer = 4
+collision_mask = 9
 
 [node name="hook" type="Sprite2D" parent="tip"]
 texture = ExtResource("3_koiwa")
@@ -31,9 +32,9 @@ position = Vector2(0, 3)
 scale = Vector2(0.25, 0.25)
 shape = SubResource("CircleShape2D_lc37p")
 
-[node name="area" type="CharacterBody2D" parent="tip"]
+[node name="area" type="CharacterBody2D" parent="tip" groups=["hook"]]
 collision_layer = 4
-collision_mask = 0
+collision_mask = 8
 
 [node name="collision" type="CollisionShape2D" parent="tip/area"]
 position = Vector2(0, 6)
