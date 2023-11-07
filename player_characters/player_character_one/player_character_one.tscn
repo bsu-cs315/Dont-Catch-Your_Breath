@@ -7,11 +7,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbkf3"]
 
 [node name="player_character_one" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_tdidt")
 
 [node name="camera" type="Camera2D" parent="."]
 
 [node name="sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_sdatt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

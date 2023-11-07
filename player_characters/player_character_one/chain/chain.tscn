@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ch635emff8osj"]
+[gd_scene load_steps=6 format=3 uid="uid://ch635emff8osj"]
 
 [ext_resource type="Script" path="res://player_characters/player_character_one/chain/chain.gd" id="1_csw44"]
-[ext_resource type="Texture2D" uid="uid://bjdk2qfb54ptd" path="res://icon.svg" id="2_yttp5"]
+[ext_resource type="Texture2D" uid="uid://c8ytd3ut1p2w" path="res://player_characters/player_character_one/chain/chain.png" id="2_f88ys"]
+[ext_resource type="Texture2D" uid="uid://c2uuyxvsnvx7c" path="res://player_characters/player_character_one/chain/hook.png" id="3_koiwa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lc37p"]
 
@@ -11,17 +12,30 @@
 script = ExtResource("1_csw44")
 
 [node name="links" type="Sprite2D" parent="."]
-texture = ExtResource("2_yttp5")
+texture_repeat = 2
+scale = Vector2(0.5, 1)
+texture = ExtResource("2_f88ys")
+centered = false
+offset = Vector2(-16, 5)
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 360)
 
 [node name="tip" type="CharacterBody2D" parent="."]
+collision_layer = 4
 
 [node name="hook" type="Sprite2D" parent="tip"]
-texture = ExtResource("2_yttp5")
+texture = ExtResource("3_koiwa")
 
 [node name="collision" type="CollisionShape2D" parent="tip"]
+position = Vector2(0, 3)
+scale = Vector2(0.25, 0.25)
 shape = SubResource("CircleShape2D_lc37p")
 
-[node name="area" type="Area2D" parent="tip"]
+[node name="area" type="CharacterBody2D" parent="tip"]
+collision_layer = 4
+collision_mask = 0
 
 [node name="collision" type="CollisionShape2D" parent="tip/area"]
+position = Vector2(0, 6)
+scale = Vector2(1.2, 1.2)
 shape = SubResource("CircleShape2D_qd63n")

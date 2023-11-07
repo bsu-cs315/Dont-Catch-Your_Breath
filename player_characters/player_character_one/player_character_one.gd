@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const JUMP_FORCE = 800			
-const MOVE_SPEED = 30			
+const MOVE_SPEED = 100			
 const GRAVITY = 50				
 const MAX_SPEED = 2000			
 const FRICTION_AIR = 0.95		
