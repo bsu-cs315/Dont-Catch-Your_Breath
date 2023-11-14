@@ -10,22 +10,51 @@ const SPEED = 50
 var flying = false
 var hooked = false
 
+var shot = false
+
 func shoot(dir: Vector2) -> void:
-	
+	shot = true
+	$release_timer.start(5)
+	$tip/collision.disabled = false 
+	$tip/area/collision.disabled = false
 	direction = dir.normalized()	
 	flying = true					
 	tip = self.global_position		
 
 
-func release() -> void:
-	tip = self.global_position		
+
+
+	
+
+func timed_release():
+	$release_timer.start(.2)
+	print("hi")
+	
+	
+
+func release():
+	shot = false
+	tip = self.global_position
 	flying = false	
 	hooked = false	
 
-
 func _process(_delta: float) -> void:
+	print($release_timer.time_left)
+	
+	if Input.is_action_just_released("click"):
+		$release_timer.stop()
+		shot = false
+
+	if $release_timer.is_stopped():
+		if shot == true:
+			tip = self.global_position
+			flying = false	
+			hooked = false	
+	
 	self.visible = flying or hooked
 	if not self.visible:
+		$tip/collision.disabled = true 
+		$tip/area/collision.disabled = true
 		return
 	var tip_loc = to_local(tip)
 
@@ -42,3 +71,9 @@ func _physics_process(_delta: float) -> void:
 			hooked = true
 			flying = false
 	tip = $tip.global_position
+
+
+func _on_release_timer_timeout():
+		tip = self.global_position
+		flying = false	
+		hooked = false	

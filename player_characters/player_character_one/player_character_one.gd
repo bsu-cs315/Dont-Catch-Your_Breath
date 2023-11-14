@@ -9,11 +9,16 @@ const FRICTION_GROUND = 0.85
 const CHAIN_PULL = 105
 
 var chain_velocity := Vector2(0,0)
-var can_jump = false		
+var can_jump = false
+
+
 
 func game_over():
 		get_tree().change_scene_to_file("res://environment/room_one.tscn")
+
+
 		
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed:
@@ -21,7 +26,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			$chain.shoot(event.position - get_viewport().size * 0.5)
 
 		else:
-		
 			$chain.release()
 
 
