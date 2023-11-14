@@ -21,7 +21,7 @@ offset = Vector2(-16, 5)
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 360)
 
-[node name="tip" type="CharacterBody2D" parent="." groups=["hook", "hook_tip"]]
+[node name="tip" type="CharacterBody2D" parent="." groups=["hook"]]
 collision_layer = 4
 collision_mask = 9
 script = ExtResource("4_w03vc")

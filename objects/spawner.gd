@@ -26,5 +26,5 @@ func _ready():
 		pressure +=.015
 	$enemy_counter_label.text = "Congrats!!"
 	$win_sound.play()
-	await get_tree().create_timer(10.0).timeout
+	await get_tree().create_timer(20.0).timeout
 	get_tree().change_scene_to_file("res://menus/menu.tscn")

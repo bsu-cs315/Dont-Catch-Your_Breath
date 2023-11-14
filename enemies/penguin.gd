@@ -28,4 +28,8 @@ func _on_area_body_entered(body):
 		$death.play()
 		await get_tree().create_timer(.1).timeout
 		queue_free()
+	if body.is_in_group("protect_point"):
+		body.decrement_health()
+		queue_free()
+		
 		

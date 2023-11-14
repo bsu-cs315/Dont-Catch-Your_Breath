@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://lcqncdkcio4f"]
+
+[ext_resource type="Script" path="res://objects/protect_point.gd" id="1_hcjgb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rq3bt"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_x68bg"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_t8x5f"]
+width = 32
+height = 32
+noise = SubResource("FastNoiseLite_x68bg")
+
+[node name="protect_point" type="CharacterBody2D" groups=["protect_point"]]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("1_hcjgb")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rq3bt")
+
+[node name="health_label" type="Label" parent="."]
+offset_left = -8.0
+offset_top = -37.0
+offset_right = 32.0
+offset_bottom = -11.0
+text = "40
+"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("NoiseTexture2D_t8x5f")

@@ -28,7 +28,6 @@ func shoot(dir: Vector2) -> void:
 
 func timed_release():
 	$release_timer.start(.2)
-	print("hi")
 	
 	
 
@@ -39,7 +38,6 @@ func release():
 	hooked = false	
 
 func _process(_delta: float) -> void:
-	print($release_timer.time_left)
 	
 	if Input.is_action_just_released("click"):
 		$release_timer.stop()
