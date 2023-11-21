@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhapwbysq52si"]
+[gd_scene load_steps=6 format=3 uid="uid://bhapwbysq52si"]
 
 [ext_resource type="Script" path="res://menus/menu.gd" id="1_ln31l"]
 [ext_resource type="Texture2D" uid="uid://dmve2s28ftxs0" path="res://dont_catch_your_breath_project_one_page.png" id="2_n2c1n"]
 [ext_resource type="AudioStream" uid="uid://cvqqf4saujfb7" path="res://environment/bgmusic (2).ogg" id="3_levsu"]
 [ext_resource type="AudioStream" uid="uid://dnagd7ayt54kr" path="res://menus/start.wav" id="4_3herh"]
+[ext_resource type="PackedScene" uid="uid://fboud5ys6od4" path="res://enemies/laser.tscn" id="5_pl1w4"]
 
 [node name="menu" type="Control"]
 layout_mode = 3
@@ -45,6 +46,9 @@ autoplay = true
 [node name="start_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_3herh")
 volume_db = 5.622
+
+[node name="laser" parent="." instance=ExtResource("5_pl1w4")]
+position = Vector2(261, 399)
 
 [connection signal="pressed" from="margin_container/vbox/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="margin_container/vbox/quit" to="." method="_on_quit_pressed"]
