@@ -7,7 +7,7 @@ var updatable :=false
 func _ready() -> void:
 	set_physics_process(false)
 	$line.points[1] = Vector2.ZERO
-	$laser_particles.reset()
+	$laser_particles.restart()
 
 func fire_laser() ->void:
 	is_casting = true
@@ -44,8 +44,8 @@ func set_is_casting(cast: bool) -> void:
 
 	if is_casting == true:
 		$line.appear()
-		$laser_particles.reset()
-		
+
+		$laser_particles.restart()
 	else:
 		$line.disappear()
 
