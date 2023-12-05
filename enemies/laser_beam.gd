@@ -4,6 +4,8 @@ var is_casting := false
 var is_already_casting := false
 var updatable :=false
 
+
+
 func _ready() -> void:
 	set_physics_process(false)
 	$line.points[1] = Vector2.ZERO
@@ -19,10 +21,12 @@ func _physics_process(_delta: float) -> void:
 	var cast_point := target_position
 	force_raycast_update()
 	if is_colliding():
+		if get_collider().has_method("game_over"):
+			if is_casting == true:
+				get_collider().game_over()
 		if is_already_casting == false:
 			if is_casting == true:
 				cast_point = to_local(get_collision_point())
-				print("hi")
 				$laser_position.laser_swipe(cast_point)
 				set_is_already_casting(true)
 	if updatable == true:
@@ -48,8 +52,6 @@ func set_is_casting(cast: bool) -> void:
 		$laser_particles.restart()
 	else:
 		$line.disappear()
-
-
-
 	set_physics_process(is_casting)
-	
+
+

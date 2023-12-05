@@ -87,3 +87,8 @@ func _physics_process(_delta: float) -> void:
 #			
 			can_jump = false	
 			velocity.y = -JUMP_FORCE
+
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("laser"):
+		self.game_over()
