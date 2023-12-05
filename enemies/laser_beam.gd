@@ -30,7 +30,6 @@ func _physics_process(_delta: float) -> void:
 				$laser_position.laser_swipe(cast_point)
 				set_is_already_casting(true)
 	if updatable == true:
-		print ($laser_position.position)
 		$line.points[1] = $laser_position.position
 	else:
 		$line.points[1] = Vector2.ZERO
