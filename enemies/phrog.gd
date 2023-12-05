@@ -1,10 +1,10 @@
-extends CharacterBody2D
-
-const SPEED = -100.0
-const JUMP_VELOCITY = -700.0
+extends CharacterBody2D00.0
 
 var jumping := false
 
+
+const SPEED = -100.0
+const JUMP_VELOCITY = -7
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -22,24 +22,7 @@ func _physics_process(delta):
 		velocity.x = 0
 	
 	if randf() > .99 and is_on_floor():
-		var random_jump = randf()
-		var random_speed = randf()
-		if random_jump <= .33:
-			velocity.y = JUMP_VELOCITY*.75
-		elif random_jump >= .66:
-			velocity.y = JUMP_VELOCITY*1.5
-		else:
-			velocity.y = JUMP_VELOCITY*1
-			
-			
-		if random_speed <= .33:
-			print("small")
-		elif random_speed >= .66:
-			print("large")
-		else:
-			print("medium")
-			
-
+		velocity.y = JUMP_VELOCITY
 		jumping = true
 	move_and_slide()
 
