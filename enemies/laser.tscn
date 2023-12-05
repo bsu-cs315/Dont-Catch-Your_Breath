@@ -1,13 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://fboud5ys6od4"]
 
 [ext_resource type="Script" path="res://enemies/laser_beam.gd" id="1_3dcce"]
-
-[sub_resource type="Gradient" id="Gradient_11401"]
-offsets = PackedFloat32Array(0, 0.555556, 0.977778)
-colors = PackedColorArray(0, 0, 0, 1, 1, 0.498039, 1, 1, 1, 0.498039, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_e7b3i"]
-gradient = SubResource("Gradient_11401")
+[ext_resource type="Script" path="res://enemies/line.gd" id="2_bhf43"]
+[ext_resource type="Script" path="res://enemies/laser_position.gd" id="3_pg363"]
 
 [sub_resource type="Curve" id="Curve_nn8h7"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.614458, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -25,18 +20,22 @@ orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 scale_min = 0.7
 scale_curve = SubResource("CurveTexture_otd6s")
-color_ramp = SubResource("GradientTexture1D_e7b3i")
 
 [node name="laser" type="RayCast2D"]
 target_position = Vector2(1000, 0)
-collision_mask = 0
+collision_mask = 19
 script = ExtResource("1_3dcce")
 
 [node name="line" type="Line2D" parent="."]
+z_index = -1
 points = PackedVector2Array(0, 0, 100, 0)
 default_color = Color(0.513726, 0, 0.184314, 1)
+script = ExtResource("2_bhf43")
 
 [node name="laser_particles" type="GPUParticles2D" parent="."]
-emitting = false
 process_material = SubResource("ParticleProcessMaterial_u73t4")
-lifetime = 0.3
+lifetime = 0.55
+one_shot = true
+
+[node name="laser_position" type="Marker2D" parent="."]
+script = ExtResource("3_pg363")

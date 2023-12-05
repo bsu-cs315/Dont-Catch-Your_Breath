@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED = 100.0
-
+var laser_starter = 1
 
 
 
@@ -10,18 +10,15 @@ const SPEED = 100.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-
+	if (laser_starter ==1):
+		$laser_shooter.begin_laser_cycle()
+		laser_starter = laser_starter - 1
 	velocity.x = -SPEED
-	
-	var timer = get_tree().create_timer(1.0)
-	timer.timeout.connect($laser.fire_laser)
-
-	
-
 
 	move_and_slide()
 

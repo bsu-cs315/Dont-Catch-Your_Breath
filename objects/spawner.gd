@@ -1,7 +1,7 @@
 extends Node2D
 
 
-@export var enemy_number = 40
+@export var enemy_number = 1
 var pressure = 0
 
 
