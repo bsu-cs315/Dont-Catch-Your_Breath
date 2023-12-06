@@ -4,21 +4,29 @@
 [ext_resource type="Texture2D" uid="uid://bjdk2qfb54ptd" path="res://icon.svg" id="2_brjx7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sq3ux"]
+size = Vector2(18, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7iy4s"]
 
-[node name="phrog" type="CharacterBody2D"]
+[node name="phrog" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 8
+collision_mask = 17
 script = ExtResource("1_xvlpr")
 
 [node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_sq3ux")
 
 [node name="sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.159999, 0.16)
 texture = ExtResource("2_brjx7")
 
-[node name="area" type="Area2D" parent="."]
+[node name="area" type="Area2D" parent="." groups=["enemy"]]
+collision_layer = 8
+collision_mask = 22
 
 [node name="collision" type="CollisionShape2D" parent="area"]
 shape = SubResource("RectangleShape2D_7iy4s")
 
 [node name="death" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]

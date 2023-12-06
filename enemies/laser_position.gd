@@ -3,7 +3,7 @@ extends Marker2D
 func laser_swipe(cast_point):
 	var static_cast_point = cast_point
 	self.position = Vector2(static_cast_point.x, static_cast_point.y+50)
-	var new_point = Vector2(cast_point.x + 15,0)
+	var new_point = Vector2(cast_point.x + 15,-20)
 
 	var tween = create_tween()
 	$"..".update_line_point(true)
@@ -14,3 +14,4 @@ func laser_swipe(cast_point):
 	self.position = Vector2(0,0)
 
 
+ 

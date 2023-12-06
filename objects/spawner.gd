@@ -1,13 +1,15 @@
 extends Node2D
 
 
-@export var enemy_number = 1
+@export var enemy_number = 20
 var pressure = 0
 
 
 @export var enemy_types : Array[String] = [
-	"res://enemies/penguin.tscn",
-#	"res://enemies/phrog.tscn"
+#	"res://enemies/penguin.tscn",
+#	"res://enemies/phrog.tscn",
+#	"res://enemies/blufferfly.tscn",
+	"res://enemies/hummerodactyl.tscn",
 ]
 
 
