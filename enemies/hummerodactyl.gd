@@ -3,7 +3,7 @@ extends CharacterBody2D
 const SPEED = 200.0
 var moving_left_tracker := true
 var start_point_tracker := false
-var load_counter = 0
+
 
 var player_position
 var protect_point_position
@@ -14,20 +14,14 @@ var new_player_position_x = 0
 var new_player_position_y = 0
 #
 
-@onready var player = null
-@onready var protect_point = null
-#@onready var player = get_tree().get_root().get_node("room_one/player_character_one")
-#@onready var protect_point = get_tree().get_root().get_node("room_one/protect_point")
+
+@onready var player = get_parent().get_parent().get_parent().get_node("player_character_one")
+@onready var protect_point = get_parent().get_parent().get_parent().get_node("protect_point")
 
 
 	
 func _physics_process(_delta):
-	if load_counter == 0:
-		player = get_tree().get_root().get_node("room_one/player_character_one")
-		protect_point = get_tree().get_root().get_node("room_one/protect_point")
-		print(get_parent().get_parent().get_parent().get_node("player_character_one"))
-		load_counter +=1
-	
+
 	new_player_position_x = player.position.x + 469.5
 	new_player_position_y = player.position.y - 300
 	

@@ -17,9 +17,10 @@ func shoot(dir: Vector2) -> void:
 	$release_timer.start(5)
 	$tip/collision.disabled = false 
 	$tip/area/collision.disabled = false
-	direction = dir.normalized()	
+	print (dir)
+	direction = Vector2(dir.x, dir.y - 150).normalized()	
 	flying = true					
-	tip = self.global_position		
+	tip = self.global_position	
 
 
 

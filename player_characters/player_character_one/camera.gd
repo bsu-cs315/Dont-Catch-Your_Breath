@@ -8,4 +8,4 @@ func _input(event: InputEvent) -> void:
 		if _target.length() < DEAD_ZONE:
 			self.position = Vector2(0,0)
 		else:
-			self.position = _target.normalized() * (_target.length() - DEAD_ZONE) * 0.5
+			self.position = _target.normalized() * (_target.length() - DEAD_ZONE)

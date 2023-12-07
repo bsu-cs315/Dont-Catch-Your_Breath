@@ -17,6 +17,7 @@ collision_layer = 2
 script = ExtResource("1_tdidt")
 
 [node name="camera" type="Camera2D" parent="."]
+offset = Vector2(0, -150)
 script = ExtResource("2_teku7")
 
 [node name="sprite" type="Sprite2D" parent="."]
