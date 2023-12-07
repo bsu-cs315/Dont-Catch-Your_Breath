@@ -17,7 +17,6 @@ func game_over():
 		get_tree().change_scene_to_file("res://environment/room_one.tscn")
 
 
-		
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
