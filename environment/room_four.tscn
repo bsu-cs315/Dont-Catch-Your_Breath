@@ -51,7 +51,7 @@ sources/2 = SubResource("TileSetAtlasSource_r0gfo")
 sources/0 = SubResource("TileSetAtlasSource_5s5p0")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ah2oa"]
-size = Vector2(92, 20)
+size = Vector2(92, 125)
 
 [node name="room_four" type="Node2D"]
 script = ExtResource("1_oliwd")
@@ -84,17 +84,27 @@ stream = ExtResource("5_xc7uy")
 position = Vector2(-633, 960)
 
 [node name="spawner_spawn" type="Marker2D" parent="spawns"]
-position = Vector2(125, 321)
+position = Vector2(122, 959)
+
+[node name="spawner_spawn_2" type="Marker2D" parent="spawns"]
+position = Vector2(-596, 293)
 
 [node name="protect_point_spawn" type="Marker2D" parent="spawns"]
-position = Vector2(-241, 936)
+position = Vector2(-239, 976)
 
 [node name="exit" type="Area2D" parent="."]
-position = Vector2(232, -819)
+position = Vector2(-164, 57)
 collision_mask = 2
 
 [node name="collision" type="CollisionShape2D" parent="exit"]
-position = Vector2(-73, 875)
+position = Vector2(-73, 822.5)
 shape = SubResource("RectangleShape2D_ah2oa")
+
+[node name="capital_label" type="Label" parent="."]
+offset_left = -247.0
+offset_top = 864.0
+offset_right = -108.0
+offset_bottom = 890.0
+text = "Don't let them in!!"
 
 [connection signal="body_entered" from="exit" to="." method="_on_exit_body_entered"]

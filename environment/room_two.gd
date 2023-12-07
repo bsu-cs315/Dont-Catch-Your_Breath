@@ -39,7 +39,7 @@ func on_exit():
 	$help_label.visible = true
 	await get_tree().create_timer(5).timeout
 	$help_label.visible = true
-	$help_label.set_text("Thank you Javeleis!")
+	$help_label.set_text("Bless you Javeleis!")
 	await get_tree().create_timer(3).timeout
 	$help_label.visible = true
 	$help_label.set_text("Follow me! The water plant is in danger!!!")

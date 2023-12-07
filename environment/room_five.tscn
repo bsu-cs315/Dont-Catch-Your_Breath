@@ -1,10 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://cfepgb4b0xmyc"]
+[gd_scene load_steps=24 format=3 uid="uid://cfepgb4b0xmyc"]
 
 [ext_resource type="Script" path="res://environment/room_five.gd" id="1_hmj0n"]
 [ext_resource type="Texture2D" uid="uid://r76ehfi0ifmr" path="res://environment/wall_solid.png" id="2_5s66v"]
 [ext_resource type="Texture2D" uid="uid://dsw1tod4nmhrm" path="res://environment/wall_solid_alt.png" id="3_p3qxh"]
 [ext_resource type="Texture2D" uid="uid://b6sxk1bxyafob" path="res://environment/rooftop_bg.png" id="4_kmjhn"]
 [ext_resource type="AudioStream" uid="uid://cvqqf4saujfb7" path="res://environment/bgmusic (2).ogg" id="5_aiupp"]
+[ext_resource type="Texture2D" uid="uid://c53tlioxs13mr" path="res://environment/beam1.png" id="6_u160f"]
+[ext_resource type="Texture2D" uid="uid://dfvxepeacqkh8" path="res://environment/beam2.png" id="7_nu55b"]
+[ext_resource type="Texture2D" uid="uid://b4cebroy0r1w3" path="res://environment/beam3.png" id="8_n1nf5"]
+[ext_resource type="Texture2D" uid="uid://d1e88ersgjkxd" path="res://environment/star1.png" id="9_qcnce"]
+[ext_resource type="Texture2D" uid="uid://drlt5d3ciy71i" path="res://environment/star2.png" id="10_hny3d"]
+[ext_resource type="Texture2D" uid="uid://dqambv8jqh2pq" path="res://environment/star3.png" id="11_dp66c"]
+[ext_resource type="Texture2D" uid="uid://dqclsll8kg845" path="res://environment/star4.png" id="12_wf3we"]
+[ext_resource type="Texture2D" uid="uid://3d1hllq0ba" path="res://environment/star5.png" id="13_7ntif"]
+[ext_resource type="Texture2D" uid="uid://th2gjcbcl3lc" path="res://environment/star6.png" id="14_mcjya"]
+[ext_resource type="Texture2D" uid="uid://qmccy7d2ukdp" path="res://environment/crate_guy.png" id="15_re0f4"]
+[ext_resource type="Texture2D" uid="uid://cy36rimo8dd65" path="res://environment/crate_guy2.png" id="16_qpd7o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5s5p0"]
 texture = ExtResource("2_5s66v")
@@ -51,7 +62,64 @@ sources/2 = SubResource("TileSetAtlasSource_r0gfo")
 sources/0 = SubResource("TileSetAtlasSource_5s5p0")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ah2oa"]
-size = Vector2(92, 20)
+size = Vector2(299, 225)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jc0op"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_u160f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_nu55b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_n1nf5")
+}],
+"loop": true,
+"name": &"beam",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cnvjo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_qcnce")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_hny3d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_dp66c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_wf3we")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_7ntif")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_mcjya")
+}],
+"loop": true,
+"name": &"star",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_geora"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_re0f4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_qpd7o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="room_five" type="Node2D"]
 script = ExtResource("1_hmj0n")
@@ -71,8 +139,9 @@ texture = ExtResource("4_kmjhn")
 
 [node name="background_background" type="Sprite2D" parent="."]
 z_index = -7
-position = Vector2(-18, 42)
-scale = Vector2(118.875, 133.125)
+position = Vector2(-807.5, -1591)
+scale = Vector2(514.281, 330.063)
+texture = ExtResource("2_5s66v")
 
 [node name="bgmusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_aiupp")
@@ -82,18 +151,51 @@ stream = ExtResource("5_aiupp")
 [node name="player_spawn" type="Marker2D" parent="spawns"]
 position = Vector2(-603, 666)
 
-[node name="spawner_spawn" type="Marker2D" parent="spawns"]
-position = Vector2(-727, -361)
-
 [node name="protect_point_spawn" type="Marker2D" parent="spawns"]
 position = Vector2(-5553, -3754)
+
+[node name="spawner_spawn" type="Marker2D" parent="spawns"]
+position = Vector2(-955, -389)
+
+[node name="spawner_spawn_2" type="Marker2D" parent="spawns"]
+position = Vector2(-968, -2831)
+
+[node name="spawner_spawn_3" type="Marker2D" parent="spawns"]
+position = Vector2(-939, -1576)
 
 [node name="exit" type="Area2D" parent="."]
 position = Vector2(-301, -3648)
 collision_mask = 2
 
 [node name="collision" type="CollisionShape2D" parent="exit"]
-position = Vector2(23, 0)
+position = Vector2(72.5, -120.5)
 shape = SubResource("RectangleShape2D_ah2oa")
+
+[node name="laser_animation" type="AnimatedSprite2D" parent="."]
+position = Vector2(-273, -2495)
+sprite_frames = SubResource("SpriteFrames_jc0op")
+animation = &"beam"
+autoplay = "beam"
+
+[node name="star_animation" type="AnimatedSprite2D" parent="."]
+position = Vector2(-273, -2495)
+sprite_frames = SubResource("SpriteFrames_cnvjo")
+animation = &"star"
+autoplay = "star"
+
+[node name="crate_guy_animation" type="AnimatedSprite2D" parent="."]
+position = Vector2(11, 692)
+scale = Vector2(-0.125, 0.125)
+sprite_frames = SubResource("SpriteFrames_geora")
+autoplay = "default"
+frame = 1
+frame_progress = 0.281502
+
+[node name="crate_guy_text" type="Label" parent="."]
+offset_left = -47.0
+offset_top = 595.0
+offset_right = 57.0
+offset_bottom = 621.0
+text = "GO GET 'EM!!!"
 
 [connection signal="body_entered" from="exit" to="." method="_on_exit_body_entered"]

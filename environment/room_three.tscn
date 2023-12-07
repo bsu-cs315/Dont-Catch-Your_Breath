@@ -51,7 +51,7 @@ sources/2 = SubResource("TileSetAtlasSource_r0gfo")
 sources/0 = SubResource("TileSetAtlasSource_5s5p0")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ah2oa"]
-size = Vector2(92, 20)
+size = Vector2(92, 62)
 
 [node name="room_three" type="Node2D"]
 script = ExtResource("1_q0shg")
@@ -97,7 +97,7 @@ position = Vector2(232, -819)
 collision_mask = 2
 
 [node name="collision" type="CollisionShape2D" parent="exit"]
-position = Vector2(-479, 814)
+position = Vector2(-479, 835)
 shape = SubResource("RectangleShape2D_ah2oa")
 
 [node name="valve_counter_label" type="Label" parent="."]
@@ -113,10 +113,10 @@ one_shot = true
 autostart = true
 
 [node name="crate_guy_text" type="Label" parent="."]
-offset_left = -171.0
-offset_top = -14.0
-offset_right = -131.0
-offset_bottom = 9.0
+offset_left = -191.0
+offset_top = 34.0
+offset_right = -151.0
+offset_bottom = 57.0
 
 [connection signal="body_entered" from="exit" to="." method="_on_exit_body_entered"]
 [connection signal="timeout" from="valve_timer" to="." method="_on_valve_timer_timeout"]

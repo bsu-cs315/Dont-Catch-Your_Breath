@@ -1,7 +1,7 @@
 extends Node2D
 
 
-@export var enemy_number = 1000
+@export var enemy_number = 20
 var pressure = 0
 
 
@@ -26,4 +26,8 @@ func _ready():
 		_enemies.add_child(object)
 		await get_tree().create_timer(2.0 - pressure).timeout
 		enemy_number -= 1
+		pressure +=.02
+	$enemy_counter_label.text = "Congrats!!"
+	$win_sound.play()
 
+	

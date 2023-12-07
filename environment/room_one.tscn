@@ -107,7 +107,7 @@ position = Vector2(-411, 759)
 position = Vector2(314, 664)
 
 [node name="protect_point_spawn" type="Marker2D" parent="spawns"]
-position = Vector2(-322, 763)
+position = Vector2(-3920, -2946)
 
 [node name="exit" type="Area2D" parent="."]
 position = Vector2(232, -819)
@@ -116,5 +116,12 @@ collision_mask = 2
 [node name="collision" type="CollisionShape2D" parent="exit"]
 position = Vector2(23, 0)
 shape = SubResource("RectangleShape2D_ah2oa")
+
+[node name="start_message" type="Label" parent="."]
+offset_left = -382.0
+offset_top = 696.0
+offset_right = -138.0
+offset_bottom = 722.0
+text = "What is happening out there?!?!"
 
 [connection signal="body_entered" from="exit" to="." method="_on_exit_body_entered"]

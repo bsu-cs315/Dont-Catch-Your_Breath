@@ -17,8 +17,8 @@ func _ready():
 	add_child(protect_point_instance)
 	add_child(player_instance)
 	add_child(spawner_instance)
-
-
+	await get_tree().create_timer(1.5).timeout
+	$start_message.set_text("")
 
 func _on_exit_body_entered(body):
 	if body.is_in_group("player"):

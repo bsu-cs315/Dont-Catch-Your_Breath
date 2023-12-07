@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var health = 40
+@export var health = 5
 
 func decrement_health():
 	health -= 1
