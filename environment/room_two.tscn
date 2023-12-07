@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://r76ehfi0ifmr" path="res://environment/wall_solid.png" id="2_s7umu"]
 [ext_resource type="Texture2D" uid="uid://dsw1tod4nmhrm" path="res://environment/wall_solid_alt.png" id="3_5gsrr"]
 [ext_resource type="Texture2D" uid="uid://c8tg74jo667vx" path="res://environment/street.png" id="4_3fhx8"]
-[ext_resource type="AudioStream" uid="uid://cvqqf4saujfb7" path="res://environment/bgmusic (2).ogg" id="5_xki7s"]
+[ext_resource type="AudioStream" uid="uid://biniakcw4ne3q" path="res://environment/final_bg_music.ogg" id="5_iof88"]
 [ext_resource type="Texture2D" uid="uid://0yfeunujj8bq" path="res://environment/flame1.png" id="6_pdtks"]
 [ext_resource type="Texture2D" uid="uid://bj12b7yu6uhkw" path="res://environment/flame2.png" id="7_btv50"]
 [ext_resource type="Texture2D" uid="uid://ula2fp8vlp87" path="res://environment/flame3.png" id="8_bldjq"]
@@ -108,7 +108,8 @@ scale = Vector2(118.875, 133.125)
 texture = ExtResource("2_s7umu")
 
 [node name="bgmusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_xki7s")
+stream = ExtResource("5_iof88")
+autoplay = true
 
 [node name="spawns" type="Node" parent="."]
 

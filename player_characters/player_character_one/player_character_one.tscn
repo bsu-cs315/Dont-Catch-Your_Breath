@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://sjlicaredsrc"]
+[gd_scene load_steps=14 format=3 uid="uid://sjlicaredsrc"]
 
 [ext_resource type="Script" path="res://player_characters/player_character_one/player_character_one.gd" id="1_tdidt"]
 [ext_resource type="Script" path="res://player_characters/player_character_one/camera.gd" id="2_teku7"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://r34x5cs1xkwx" path="res://player_characters/player_character_one/j_walk1.png" id="7_mlfyu"]
 [ext_resource type="Texture2D" uid="uid://csxx3fuqywacb" path="res://player_characters/player_character_one/j_walk2.png" id="8_hdmkq"]
 [ext_resource type="Texture2D" uid="uid://b13xa3hpmcspn" path="res://player_characters/player_character_one/j_stand.png" id="9_7qepe"]
+[ext_resource type="AudioStream" uid="uid://c1nen2fbkccx4" path="res://player_characters/player_character_one/player_death.wav" id="10_iwnu0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbkf3"]
 size = Vector2(18, 40)
@@ -82,5 +83,8 @@ scale = Vector2(0.063, 0.063)
 sprite_frames = SubResource("SpriteFrames_jaq3v")
 animation = &"stand"
 autoplay = "stand"
+
+[node name="player_death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_iwnu0")
 
 [connection signal="body_entered" from="laser_catcher_area" to="." method="_on_area_2d_body_entered"]

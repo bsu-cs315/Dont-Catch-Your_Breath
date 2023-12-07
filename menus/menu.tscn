@@ -41,6 +41,7 @@ texture = ExtResource("2_n2c1n")
 [node name="bgmusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_levsu")
 volume_db = -3.748
+autoplay = true
 
 [node name="start_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_3herh")

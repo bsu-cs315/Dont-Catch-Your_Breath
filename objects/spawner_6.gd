@@ -1,7 +1,7 @@
 extends Node2D
 
 
-@export var enemy_number = 20
+@export var enemy_number = 35
 var pressure = 0
 
 
@@ -18,6 +18,7 @@ var pressure = 0
 
 
 func _ready():
+	get_tree().change_scene_to_file("res://menus/credits.tscn")
 	while enemy_number > 0:
 		$enemy_counter_label.text = "Enemies Left: %d" % ceil(enemy_number)
 		var scene_path : String = enemy_types.pick_random()
@@ -26,8 +27,8 @@ func _ready():
 		_enemies.add_child(object)
 		await get_tree().create_timer(2.0 - pressure).timeout
 		enemy_number -= 1
-		pressure +=.02
+		pressure +=.06
 	$enemy_counter_label.text = "Congrats!!"
 	$win_sound.play()
-	await get_tree().create_timer(20.0).timeout
-	get_tree().change_scene_to_file("res://menus/menu.tscn")
+
+

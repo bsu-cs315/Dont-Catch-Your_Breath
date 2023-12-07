@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://r76ehfi0ifmr" path="res://environment/wall_solid.png" id="2_nhf5v"]
 [ext_resource type="Texture2D" uid="uid://dsw1tod4nmhrm" path="res://environment/wall_solid_alt.png" id="3_yypx0"]
 [ext_resource type="Texture2D" uid="uid://dig4q50fhdonn" path="res://environment/water_level_bg.png" id="4_ujo7u"]
-[ext_resource type="AudioStream" uid="uid://cvqqf4saujfb7" path="res://environment/bgmusic (2).ogg" id="5_epmo0"]
+[ext_resource type="AudioStream" uid="uid://biniakcw4ne3q" path="res://environment/final_bg_music.ogg" id="5_y37m3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5s5p0"]
 texture = ExtResource("2_nhf5v")
@@ -76,7 +76,8 @@ scale = Vector2(118.875, 133.125)
 texture = ExtResource("2_nhf5v")
 
 [node name="bgmusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_epmo0")
+stream = ExtResource("5_y37m3")
+autoplay = true
 
 [node name="spawns" type="Node" parent="."]
 

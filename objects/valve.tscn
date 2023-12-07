@@ -53,7 +53,7 @@ shape = SubResource("RectangleShape2D_pt4dr")
 stream = ExtResource("2_yqm1y")
 
 [node name="animation_player" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.15, 0.15)
+scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_7ofpu")
 animation = &"turn"
 autoplay = "still"

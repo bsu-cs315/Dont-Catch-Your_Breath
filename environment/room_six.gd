@@ -1,7 +1,7 @@
 extends Node2D
 
 var player = preload("res://player_characters/player_character_one/player_character_one.tscn")
-var spawner = preload("res://objects/spawner.tscn")
+var spawner = preload("res://objects/spawner_6.tscn")
 var protect_point = preload("res://objects/protect_point.tscn")
 var next_level = "res://environment/win_screen.tscn"
 
@@ -20,6 +20,4 @@ func _ready():
 
 
 
-func _on_exit_body_entered(body):
-	if body.is_in_group("player"):
-		get_tree().change_scene_to_file(next_level)
+
