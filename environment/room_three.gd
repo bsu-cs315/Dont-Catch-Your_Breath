@@ -15,7 +15,10 @@ var valve_instance = valve.instantiate()
 var countdown := true
 
 
+
 func _ready():
+	$crate_guy_text.set_text("I'll be right up here!")
+	$exit/collision.set_deferred("disabled", true)
 	player_instance.global_position = $spawns/player_spawn.position
 	spawner_instance.global_position = $spawns/spawner_spawn.position
 	protect_point_instance.global_position = $spawns/protect_point_spawn.position
@@ -27,12 +30,34 @@ func _ready():
 	add_child(valve_instance)
 	
 	while countdown == true:
+		var random_message = randf()
+
+		if random_message <= .05:
+			$crate_guy_text.set_text("Keep the valve turned or drown!")
+		elif random_message >= .051 && random_message <= .1:
+			$crate_guy_text.set_text("I'll be right up here!")
+		elif random_message >= .11 && random_message <= .15:
+			$crate_guy_text.set_text("It will stabilize soon!")
+		else:
+			$crate_guy_text.set_text("")
+		
+		
 		$valve_counter_label.text = str($valve_timer.time_left)
-		await get_tree().create_timer(.1).timeout
+		await get_tree().create_timer(.87).timeout
+		
 		if $valve_timer.time_left == 0:
 			countdown = false
-
-	
+			
+	while true:
+		$crate_guy_text.set_text("Nice job! Get back up here!")
+		await get_tree().create_timer(1).timeout
+		$crate_guy_text.set_text("")
+		await get_tree().create_timer(1).timeout
+		$crate_guy_text.set_text("We must get to the capital!")
+		await get_tree().create_timer(1).timeout
+		$crate_guy_text.set_text("")
+		
+		
 func _on_exit_body_entered(body):
 	if body.is_in_group("player"):
 		get_tree().change_scene_to_file(next_level)
@@ -40,11 +65,10 @@ func _on_exit_body_entered(body):
 
 
 func reset_timer():
-	print(14)
-	$valve_timer.start(10.0)
+	$valve_timer.start(25.0)
 
 
 
 
 func _on_valve_timer_timeout():
-	print("game_over")
+	get_node("player_character_one").game_over()

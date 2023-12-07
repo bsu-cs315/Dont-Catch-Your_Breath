@@ -38,6 +38,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _physics_process(_delta: float) -> void:
+	if game_over_check == true:
+		$animation_player.animation = "death"
 	
 	var walk = (Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")) * MOVE_SPEED
 	
@@ -53,6 +55,7 @@ func _physics_process(_delta: float) -> void:
 			elif walk == 0 && walk_waiter == 1:
 				$animation_player.animation = "stand"
 				walk_waiter = 0
+				
 		else:
 			$animation_player.animation = "jump"
 			jump_waiter = 0
@@ -61,6 +64,7 @@ func _physics_process(_delta: float) -> void:
 			if is_on_floor():
 				$animation_player.animation = "stand"
 				jump_waiter = 1
+				
 		
 	velocity.y += GRAVITY
 		

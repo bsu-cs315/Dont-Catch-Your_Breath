@@ -9,7 +9,6 @@ var pressure = 0
 #	"res://enemies/penguin.tscn",
 	"res://enemies/phrog.tscn",
 	"res://enemies/blufferfly.tscn",
-	"res://enemies/blufferfly.tscn",
 	"res://enemies/hummerodactyl.tscn",
 ]
 
@@ -25,10 +24,11 @@ func _ready():
 		var object : Node2D = load(scene_path).instantiate()
 		object.global_position = _enemy_position
 		_enemies.add_child(object)
-		await get_tree().create_timer(2.0 - pressure).timeout
+		await get_tree().create_timer(1.8 - pressure).timeout
 		enemy_number -= 1
-		pressure +=.03
+		pressure +=.04
 	$enemy_counter_label.text = "Portal Defunct!!"
 	$win_sound.play()
-	await get_tree().create_timer(20.0).timeout
-	get_tree().change_scene_to_file("res://menus/menu.tscn")
+	get_parent().get_node("exit/collision").set_deferred("disabled", false)
+	get_parent().countdown = false
+	get_parent().get_node("valve_counter_label").set_text("Water Plant Secured!")
