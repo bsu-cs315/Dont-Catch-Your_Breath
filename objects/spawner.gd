@@ -24,9 +24,9 @@ func _ready():
 		var object : Node2D = load(scene_path).instantiate()
 		object.global_position = _enemy_position
 		_enemies.add_child(object)
-		await get_tree().create_timer(1.0 - pressure).timeout
+		await get_tree().create_timer(2.0 - pressure).timeout
 		enemy_number -= 1
-		pressure +=.015
+		pressure +=.02
 	$enemy_counter_label.text = "Congrats!!"
 	$win_sound.play()
 	await get_tree().create_timer(20.0).timeout

@@ -32,14 +32,6 @@ func _physics_process(delta):
 			velocity.y = JUMP_VELOCITY*1
 			
 			
-		if random_speed <= .33:
-			print("small")
-		elif random_speed >= .66:
-			print("large")
-		else:
-			print("medium")
-			
-
 		jumping = true
 	move_and_slide()
 		
@@ -49,6 +41,12 @@ func _on_area_body_entered(body):
 	if body.is_in_group("player"):
 		body.game_over()
 	if body.is_in_group("hook"):
+		$area/collision.set_deferred("disabled", true)
+		$collision.set_deferred("disabled", true)
+		body.timed_release()
 		$death.play()
 		await get_tree().create_timer(.1).timeout
+		queue_free()
+	if body.is_in_group("protect_point"):
+		body.decrement_health()
 		queue_free()

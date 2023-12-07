@@ -1,12 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://cns8enpghq0ag"]
+[gd_scene load_steps=6 format=3 uid="uid://cns8enpghq0ag"]
 
 [ext_resource type="Script" path="res://enemies/phrog.gd" id="1_xvlpr"]
-[ext_resource type="Texture2D" uid="uid://bjdk2qfb54ptd" path="res://icon.svg" id="2_brjx7"]
+[ext_resource type="Texture2D" uid="uid://dw1g2dmcby3qk" path="res://enemies/enemyy.png" id="2_ll22m"]
+[ext_resource type="AudioStream" uid="uid://bdnbtd4rccjsh" path="res://enemies/death.wav" id="3_slfms"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sq3ux"]
-size = Vector2(18, 18)
+size = Vector2(42, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7iy4s"]
+size = Vector2(42, 36)
 
 [node name="phrog" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 8
@@ -17,8 +19,8 @@ script = ExtResource("1_xvlpr")
 shape = SubResource("RectangleShape2D_sq3ux")
 
 [node name="sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.159999, 0.16)
-texture = ExtResource("2_brjx7")
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("2_ll22m")
 
 [node name="area" type="Area2D" parent="." groups=["enemy"]]
 collision_layer = 8
@@ -28,5 +30,6 @@ collision_mask = 22
 shape = SubResource("RectangleShape2D_7iy4s")
 
 [node name="death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_slfms")
 
 [connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]

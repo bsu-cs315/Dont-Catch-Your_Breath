@@ -8,6 +8,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_lc37p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qd63n"]
+radius = 11.6667
 
 [node name="chain" type="Node2D" groups=["hook"]]
 script = ExtResource("1_csw44")
@@ -40,7 +41,7 @@ collision_mask = 8
 script = ExtResource("4_w03vc")
 
 [node name="collision" type="CollisionShape2D" parent="tip/area"]
-position = Vector2(0, 6)
+position = Vector2(0, 2)
 scale = Vector2(1.2, 1.2)
 shape = SubResource("CircleShape2D_qd63n")
 

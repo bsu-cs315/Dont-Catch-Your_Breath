@@ -1,0 +1,119 @@
+[gd_scene load_steps=11 format=3 uid="uid://c602ucat5dbrm"]
+
+[ext_resource type="Script" path="res://environment/room_one.gd" id="1_aj5i5"]
+[ext_resource type="Texture2D" uid="uid://r76ehfi0ifmr" path="res://environment/wall_solid.png" id="2_s7umu"]
+[ext_resource type="Texture2D" uid="uid://dsw1tod4nmhrm" path="res://environment/wall_solid_alt.png" id="3_5gsrr"]
+[ext_resource type="Texture2D" uid="uid://c8tg74jo667vx" path="res://environment/street.png" id="4_3fhx8"]
+[ext_resource type="AudioStream" uid="uid://cvqqf4saujfb7" path="res://environment/bgmusic (2).ogg" id="5_xki7s"]
+[ext_resource type="Texture2D" uid="uid://cdcvipitys2hq" path="res://environment/wall.png" id="6_2k71h"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5s5p0"]
+texture = ExtResource("2_s7umu")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2, -2, 2, -2, 2, 2, -2, 2)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2, -2, 2, -2, 2, 2, -2, 2)
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2, -2, 2, -2, 2, 2, -2, 2)
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2, -2, 2, -2, 2, 2, -2, 2)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r0gfo"]
+texture = ExtResource("3_5gsrr")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_iepet"]
+tile_size = Vector2i(4, 4)
+physics_layer_0/collision_layer = 1
+sources/2 = SubResource("TileSetAtlasSource_r0gfo")
+sources/0 = SubResource("TileSetAtlasSource_5s5p0")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ah2oa"]
+size = Vector2(92, 20)
+
+[node name="room_two" type="Node2D"]
+script = ExtResource("1_aj5i5")
+
+[node name="tile_map" type="TileMap" parent="."]
+z_index = 4
+position = Vector2(-293, 638)
+tile_set = SubResource("TileSet_iepet")
+format = 2
+
+[node name="background" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(-321, 662)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_3fhx8")
+
+[node name="background_background" type="Sprite2D" parent="."]
+z_index = -3
+position = Vector2(-18, 42)
+scale = Vector2(118.875, 133.125)
+
+[node name="bgmusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_xki7s")
+
+[node name="pass_through_walls" type="Node" parent="."]
+
+[node name="wall" type="Sprite2D" parent="pass_through_walls"]
+z_index = 4
+position = Vector2(-317, 254)
+scale = Vector2(2.875, 1.375)
+texture = ExtResource("6_2k71h")
+
+[node name="wall2" type="Sprite2D" parent="pass_through_walls"]
+z_index = 4
+position = Vector2(-22, -302)
+scale = Vector2(2.875, 1.375)
+texture = ExtResource("6_2k71h")
+
+[node name="wall3" type="Sprite2D" parent="pass_through_walls"]
+z_index = 4
+position = Vector2(255, -818)
+scale = Vector2(2.875, 0.625001)
+texture = ExtResource("6_2k71h")
+
+[node name="spawns" type="Node" parent="."]
+
+[node name="player_spawn" type="Marker2D" parent="spawns"]
+position = Vector2(-411, 759)
+
+[node name="spawner_spawn" type="Marker2D" parent="spawns"]
+position = Vector2(314, 664)
+
+[node name="protect_point_spawn" type="Marker2D" parent="spawns"]
+position = Vector2(-322, 763)
+
+[node name="exit" type="Area2D" parent="."]
+position = Vector2(232, -819)
+collision_mask = 2
+
+[node name="collision" type="CollisionShape2D" parent="exit"]
+position = Vector2(23, 0)
+shape = SubResource("RectangleShape2D_ah2oa")
+
+[connection signal="body_entered" from="exit" to="." method="_on_exit_body_entered"]

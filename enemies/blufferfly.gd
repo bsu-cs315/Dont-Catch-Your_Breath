@@ -48,6 +48,12 @@ func _on_area_body_entered(body):
 	if body.is_in_group("player"):
 		body.game_over()
 	if body.is_in_group("hook"):
+		$area/collision.set_deferred("disabled", true)
+		$collision.set_deferred("disabled", true)
+		body.timed_release()
 		$death.play()
 		await get_tree().create_timer(.1).timeout
+		queue_free()
+	if body.is_in_group("protect_point"):
+		body.decrement_health()
 		queue_free()

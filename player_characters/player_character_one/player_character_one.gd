@@ -58,7 +58,7 @@ func _physics_process(_delta: float) -> void:
 	set_up_direction(Vector2.UP)
 	move_and_slide()
 	velocity.x -= walk
-	
+
 
 	
 	velocity.y = clamp(velocity.y, -MAX_SPEED, MAX_SPEED)	
