@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://d0lqivewlva6f"]
 
 [ext_resource type="Script" path="res://enemies/hummerodactyl.gd" id="1_6hsjc"]
-[ext_resource type="Texture2D" uid="uid://bjdk2qfb54ptd" path="res://icon.svg" id="2_v53h6"]
+[ext_resource type="Texture2D" uid="uid://k2eemo856poq" path="res://enemies/hum_1.png" id="2_ab2t6"]
 [ext_resource type="AudioStream" uid="uid://bdnbtd4rccjsh" path="res://enemies/death.wav" id="3_jvcyx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nehnf"]
@@ -14,12 +14,13 @@ collision_mask = 16
 script = ExtResource("1_6hsjc")
 
 [node name="collision" type="CollisionShape2D" parent="."]
+scale = Vector2(4, 2)
 shape = SubResource("RectangleShape2D_nehnf")
 
 [node name="sprite" type="Sprite2D" parent="."]
 z_index = 5
-scale = Vector2(0.175, 0.175)
-texture = ExtResource("2_v53h6")
+scale = Vector2(0.044, 0.044)
+texture = ExtResource("2_ab2t6")
 
 [node name="area" type="Area2D" parent="." groups=["enemy"]]
 scale = Vector2(1.25, 1.25)
@@ -27,6 +28,7 @@ collision_layer = 8
 collision_mask = 22
 
 [node name="collision" type="CollisionShape2D" parent="area"]
+scale = Vector2(4, 2)
 shape = SubResource("RectangleShape2D_mp2hn")
 
 [node name="death" type="AudioStreamPlayer" parent="."]

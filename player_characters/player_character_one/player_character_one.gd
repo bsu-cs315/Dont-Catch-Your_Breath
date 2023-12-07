@@ -11,27 +11,57 @@ const CHAIN_PULL = 105
 var chain_velocity := Vector2(0,0)
 var can_jump = false
 
+var game_over_check = false
 
+var walk_waiter = 0
+var jump_waiter = 0
 
 func game_over():
-		get_tree().change_scene_to_file("res://environment/room_one.tscn")
+	$animation_player.animation = "death"
+	self.rotate(360)
+	await get_tree().create_timer(.1).timeout
+	game_over_check = true
+	await get_tree().create_timer(1).timeout
+	get_tree().change_scene_to_file("res://environment/room_one.tscn")
 
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.pressed:
-			$grapple_shot.play()
-			$chain.shoot(event.position - get_viewport().size * 0.5)
+	if game_over_check == false:
+		if event is InputEventMouseButton:
+			if event.pressed:
+				$grapple_shot.play()
+				$chain.shoot(event.position - get_viewport().size * 0.5)
 
-		else:
-			$chain.release()
+			else:
+				$chain.release()
 
 
 func _physics_process(_delta: float) -> void:
-
+	
 	var walk = (Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")) * MOVE_SPEED
 	
+	if walk < 0:
+		$animation_player.flip_h = true
+	elif walk > 0:
+		$animation_player.flip_h = false
+	if game_over_check == false:
+		if is_on_floor():
+			if walk != 0:
+				$animation_player.animation = "run"
+				walk_waiter = 1
+			elif walk == 0 && walk_waiter == 1:
+				$animation_player.animation = "stand"
+				walk_waiter = 0
+		else:
+			$animation_player.animation = "jump"
+			jump_waiter = 0
+			
+		if jump_waiter == 0:
+			if is_on_floor():
+				$animation_player.animation = "stand"
+				jump_waiter = 1
+		
 	velocity.y += GRAVITY
 		
 	
@@ -51,12 +81,15 @@ func _physics_process(_delta: float) -> void:
 	
 		chain_velocity = Vector2(0,0)
 	velocity += chain_velocity
-
-	velocity.x += walk
+	
+	if game_over_check == false:
+		velocity.x += walk
 	set_velocity(velocity)
 	set_up_direction(Vector2.UP)
 	move_and_slide()
-	velocity.x -= walk
+	
+	if game_over_check == false:
+		velocity.x -= walk
 
 
 	
@@ -65,7 +98,8 @@ func _physics_process(_delta: float) -> void:
 	var grounded = is_on_floor()
 	if grounded:
 		velocity.x *= FRICTION_GROUND	
-		can_jump = true 
+		if game_over_check == false:
+			can_jump = true 
 		if velocity.y >= 5:		
 			velocity.y = 5		
 	elif is_on_ceiling() and velocity.y <= -5:	
@@ -83,7 +117,6 @@ func _physics_process(_delta: float) -> void:
 #			
 			velocity.y = -JUMP_FORCE	
 		elif can_jump:
-#			
 			can_jump = false	
 			velocity.y = -JUMP_FORCE
 

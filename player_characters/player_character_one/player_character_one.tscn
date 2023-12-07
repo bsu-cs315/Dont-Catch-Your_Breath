@@ -1,16 +1,58 @@
-[gd_scene load_steps=8 format=3 uid="uid://sjlicaredsrc"]
+[gd_scene load_steps=13 format=3 uid="uid://sjlicaredsrc"]
 
 [ext_resource type="Script" path="res://player_characters/player_character_one/player_character_one.gd" id="1_tdidt"]
 [ext_resource type="Script" path="res://player_characters/player_character_one/camera.gd" id="2_teku7"]
 [ext_resource type="PackedScene" uid="uid://ch635emff8osj" path="res://player_characters/player_character_one/chain/chain.tscn" id="3_1kbj2"]
 [ext_resource type="Texture2D" uid="uid://b6geswgrgxgpj" path="res://player_characters/player_character_one/j_jump.png" id="3_1ufw0"]
 [ext_resource type="AudioStream" uid="uid://d4hoqlen3s4d0" path="res://player_characters/player_character_one/chain/grapple_shot.wav" id="5_ttgs7"]
+[ext_resource type="Texture2D" uid="uid://w0x5e36h5u73" path="res://player_characters/player_character_one/j_dead.png" id="6_jx31e"]
+[ext_resource type="Texture2D" uid="uid://r34x5cs1xkwx" path="res://player_characters/player_character_one/j_walk1.png" id="7_mlfyu"]
+[ext_resource type="Texture2D" uid="uid://csxx3fuqywacb" path="res://player_characters/player_character_one/j_walk2.png" id="8_hdmkq"]
+[ext_resource type="Texture2D" uid="uid://b13xa3hpmcspn" path="res://player_characters/player_character_one/j_stand.png" id="9_7qepe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbkf3"]
 size = Vector2(18, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3bjcj"]
 size = Vector2(14, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jaq3v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_jx31e")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1ufw0")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_mlfyu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hdmkq")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_7qepe")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}]
 
 [node name="player_character_one" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
@@ -20,17 +62,11 @@ script = ExtResource("1_tdidt")
 offset = Vector2(0, -120)
 script = ExtResource("2_teku7")
 
-[node name="sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.063, 0.063)
-texture = ExtResource("3_1ufw0")
-
 [node name="collision" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(1, 5)
 shape = SubResource("RectangleShape2D_fbkf3")
 
 [node name="chain" parent="." instance=ExtResource("3_1kbj2")]
-visible = false
 
 [node name="grapple_shot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_ttgs7")
@@ -40,5 +76,11 @@ stream = ExtResource("5_ttgs7")
 [node name="collision" type="CollisionShape2D" parent="laser_catcher_area"]
 position = Vector2(1, 3)
 shape = SubResource("RectangleShape2D_3bjcj")
+
+[node name="animation_player" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.063, 0.063)
+sprite_frames = SubResource("SpriteFrames_jaq3v")
+animation = &"stand"
+autoplay = "stand"
 
 [connection signal="body_entered" from="laser_catcher_area" to="." method="_on_area_2d_body_entered"]

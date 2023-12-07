@@ -45,7 +45,7 @@ func _physics_process(_delta):
 				move_and_slide()
 				if self.position.x - player.position.x < -450:
 					velocity.x = 0
-					velocity.y = 50
+					velocity.y = 100
 					move_and_slide()
 					await get_tree().create_timer(0.5).timeout
 					velocity.y = 0
@@ -56,7 +56,7 @@ func _physics_process(_delta):
 				move_and_slide()
 				if self.position.x - player.position.x > 450:
 					velocity.x = 0
-					velocity.y = 50
+					velocity.y = 100
 					move_and_slide()
 					await get_tree().create_timer(0.5).timeout
 					velocity.y = 0

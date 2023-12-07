@@ -1,10 +1,11 @@
 [gd_scene load_steps=6 format=3 uid="uid://bg1xy8jposv1"]
 
-[ext_resource type="Texture2D" uid="uid://bjdk2qfb54ptd" path="res://icon.svg" id="1_7fkwt"]
 [ext_resource type="Script" path="res://enemies/blufferfly.gd" id="1_wgbf5"]
+[ext_resource type="Texture2D" uid="uid://uv52v631bkqt" path="res://enemies/butterfly_open.png" id="2_p8qe0"]
 [ext_resource type="AudioStream" uid="uid://bdnbtd4rccjsh" path="res://enemies/death.wav" id="3_yswd3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j8de1"]
+size = Vector2(18, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pt4dr"]
 
@@ -14,17 +15,19 @@ collision_mask = 17
 script = ExtResource("1_wgbf5")
 
 [node name="collision" type="CollisionShape2D" parent="."]
+scale = Vector2(1.496, 1.501)
 shape = SubResource("RectangleShape2D_j8de1")
 
 [node name="sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.16, 0.150556)
-texture = ExtResource("1_7fkwt")
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("2_p8qe0")
 
 [node name="area" type="Area2D" parent="." groups=["enemy"]]
 collision_layer = 8
 collision_mask = 22
 
 [node name="collision" type="CollisionShape2D" parent="area"]
+scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_pt4dr")
 
 [node name="death" type="AudioStreamPlayer" parent="."]

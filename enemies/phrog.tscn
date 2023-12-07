@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://cns8enpghq0ag"]
 
 [ext_resource type="Script" path="res://enemies/phrog.gd" id="1_xvlpr"]
-[ext_resource type="Texture2D" uid="uid://dw1g2dmcby3qk" path="res://enemies/enemyy.png" id="2_ll22m"]
+[ext_resource type="Texture2D" uid="uid://caml4hap86rq0" path="res://enemies/frog 2.png" id="2_q837p"]
 [ext_resource type="AudioStream" uid="uid://bdnbtd4rccjsh" path="res://enemies/death.wav" id="3_slfms"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sq3ux"]
-size = Vector2(42, 36)
+size = Vector2(42, 34)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7iy4s"]
-size = Vector2(42, 36)
+size = Vector2(44, 36)
 
 [node name="phrog" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 8
@@ -19,8 +19,9 @@ script = ExtResource("1_xvlpr")
 shape = SubResource("RectangleShape2D_sq3ux")
 
 [node name="sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.04, 0.04)
-texture = ExtResource("2_ll22m")
+position = Vector2(0, 4)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_q837p")
 
 [node name="area" type="Area2D" parent="." groups=["enemy"]]
 collision_layer = 8

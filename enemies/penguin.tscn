@@ -7,18 +7,19 @@
 [ext_resource type="PackedScene" uid="uid://ec6g24d6lrjn" path="res://enemies/laser_shooter.tscn" id="4_jbce8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nehnf"]
-size = Vector2(20, 51)
+size = Vector2(17.1537, 47.6132)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mp2hn"]
 size = Vector2(16, 40.8)
 
 [node name="penguin" type="CharacterBody2D" groups=["enemy"]]
+scale = Vector2(-1.04934, 1.00812)
 collision_layer = 8
 collision_mask = 17
 script = ExtResource("1_fjfwi")
 
 [node name="collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 21.5)
+position = Vector2(1.13604e-07, 21.8227)
 shape = SubResource("RectangleShape2D_nehnf")
 
 [node name="sprite" type="Sprite2D" parent="."]
