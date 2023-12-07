@@ -23,7 +23,6 @@ func _physics_process(delta):
 	
 	if randf() > .99 and is_on_floor():
 		var random_jump = randf()
-		var random_speed = randf()
 		if random_jump <= .33:
 			velocity.y = JUMP_VELOCITY*.75
 		elif random_jump >= .66:
