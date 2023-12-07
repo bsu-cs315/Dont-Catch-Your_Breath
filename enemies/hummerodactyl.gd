@@ -40,23 +40,25 @@ func _physics_process(_delta):
 		move_and_slide()
 	else:
 		if self.position.distance_to(protect_point_position) > 100:
+			$animation_player.flip_h = false
 			if moving_left_tracker == true:
 				velocity.x = -SPEED + player.velocity.x*.1
 				move_and_slide()
 				if self.position.x - player.position.x < -450:
 					velocity.x = 0
-					velocity.y = 100
+					velocity.y = 150
 					move_and_slide()
 					await get_tree().create_timer(0.5).timeout
 					velocity.y = 0
 					moving_left_tracker = false
 					
 			else:
+				$animation_player.flip_h = true
 				velocity.x = SPEED + player.velocity.x*.1
 				move_and_slide()
 				if self.position.x - player.position.x > 450:
 					velocity.x = 0
-					velocity.y = 100
+					velocity.y = 150
 					move_and_slide()
 					await get_tree().create_timer(0.5).timeout
 					velocity.y = 0

@@ -8,7 +8,7 @@ var target_position
 var flutter_track := true
 
 
-@onready var player = get_tree().get_root().get_node("room_one/player_character_one")
+@onready var player = get_parent().get_parent().get_parent().get_node("player_character_one")
 
 
 func _physics_process(_delta):

@@ -19,6 +19,7 @@ func _physics_process(delta):
 		$laser_shooter.begin_laser_cycle()
 		laser_starter = laser_starter - 1
 	velocity.x = -SPEED
+	
 
 	move_and_slide()
 

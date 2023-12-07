@@ -1,13 +1,38 @@
-[gd_scene load_steps=6 format=3 uid="uid://bg1xy8jposv1"]
+[gd_scene load_steps=9 format=3 uid="uid://bg1xy8jposv1"]
 
 [ext_resource type="Script" path="res://enemies/blufferfly.gd" id="1_wgbf5"]
 [ext_resource type="Texture2D" uid="uid://uv52v631bkqt" path="res://enemies/butterfly_open.png" id="2_p8qe0"]
 [ext_resource type="AudioStream" uid="uid://bdnbtd4rccjsh" path="res://enemies/death.wav" id="3_yswd3"]
+[ext_resource type="Texture2D" uid="uid://c8h5dmi2wdkb7" path="res://enemies/butterfly_between.png" id="4_7vi30"]
+[ext_resource type="Texture2D" uid="uid://jplfn6dsvlc0" path="res://enemies/butterfly_closed.png" id="5_xujw5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j8de1"]
 size = Vector2(18, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pt4dr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ofpu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_p8qe0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7vi30")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xujw5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7vi30")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_p8qe0")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}]
 
 [node name="blufferfly" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 8
@@ -17,10 +42,6 @@ script = ExtResource("1_wgbf5")
 [node name="collision" type="CollisionShape2D" parent="."]
 scale = Vector2(1.496, 1.501)
 shape = SubResource("RectangleShape2D_j8de1")
-
-[node name="sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.03, 0.03)
-texture = ExtResource("2_p8qe0")
 
 [node name="area" type="Area2D" parent="." groups=["enemy"]]
 collision_layer = 8
@@ -32,5 +53,11 @@ shape = SubResource("RectangleShape2D_pt4dr")
 
 [node name="death" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_yswd3")
+
+[node name="animation_player" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.03, 0.03)
+sprite_frames = SubResource("SpriteFrames_7ofpu")
+animation = &"fly"
+autoplay = "fly"
 
 [connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]

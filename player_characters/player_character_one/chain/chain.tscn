@@ -11,6 +11,7 @@
 radius = 11.6667
 
 [node name="chain" type="Node2D" groups=["hook"]]
+z_as_relative = false
 script = ExtResource("1_csw44")
 
 [node name="links" type="Sprite2D" parent="."]

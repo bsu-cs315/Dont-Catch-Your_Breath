@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://c602ucat5dbrm"]
+[gd_scene load_steps=13 format=3 uid="uid://c602ucat5dbrm"]
 
 [ext_resource type="Script" path="res://environment/room_two.gd" id="1_p82hw"]
 [ext_resource type="Texture2D" uid="uid://r76ehfi0ifmr" path="res://environment/wall_solid.png" id="2_s7umu"]
 [ext_resource type="Texture2D" uid="uid://dsw1tod4nmhrm" path="res://environment/wall_solid_alt.png" id="3_5gsrr"]
 [ext_resource type="Texture2D" uid="uid://c8tg74jo667vx" path="res://environment/street.png" id="4_3fhx8"]
 [ext_resource type="AudioStream" uid="uid://cvqqf4saujfb7" path="res://environment/bgmusic (2).ogg" id="5_xki7s"]
+[ext_resource type="Texture2D" uid="uid://0yfeunujj8bq" path="res://environment/flame1.png" id="6_pdtks"]
+[ext_resource type="Texture2D" uid="uid://bj12b7yu6uhkw" path="res://environment/flame2.png" id="7_btv50"]
+[ext_resource type="Texture2D" uid="uid://ula2fp8vlp87" path="res://environment/flame3.png" id="8_bldjq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5s5p0"]
 texture = ExtResource("2_s7umu")
@@ -50,6 +53,23 @@ physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_r0gfo")
 sources/0 = SubResource("TileSetAtlasSource_5s5p0")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_fvhuc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_pdtks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_btv50")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_bldjq")
+}],
+"loop": true,
+"name": &"fire",
+"speed": 5.0
+}]
+
 [node name="room_two" type="Node2D"]
 script = ExtResource("1_p82hw")
 
@@ -84,3 +104,12 @@ position = Vector2(114, 447)
 
 [node name="protect_point_spawn" type="Marker2D" parent="spawns"]
 position = Vector2(-864, 776)
+
+[node name="fire_animation" type="AnimatedSprite2D" parent="."]
+position = Vector2(-239, 399.5)
+scale = Vector2(1, 0.808333)
+sprite_frames = SubResource("SpriteFrames_fvhuc")
+animation = &"fire"
+autoplay = "fire"
+frame = 1
+frame_progress = 0.413941

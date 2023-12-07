@@ -17,7 +17,7 @@ func _ready():
 	add_child(protect_point_instance)
 	add_child(player_instance)
 	add_child(spawner_instance)
-	on_exit()
+	
 
 
 
