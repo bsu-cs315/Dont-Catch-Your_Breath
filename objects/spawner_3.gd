@@ -1,14 +1,15 @@
 extends Node2D
 
 
-@export var enemy_number = 5
+@export var enemy_number = 30
 var pressure = 0
 
 
 @export var enemy_types : Array[String] = [
 #	"res://enemies/penguin.tscn",
 	"res://enemies/phrog.tscn",
-#	"res://enemies/blufferfly.tscn",
+	"res://enemies/blufferfly.tscn",
+	"res://enemies/blufferfly.tscn",
 	"res://enemies/hummerodactyl.tscn",
 ]
 
@@ -26,8 +27,8 @@ func _ready():
 		_enemies.add_child(object)
 		await get_tree().create_timer(2.0 - pressure).timeout
 		enemy_number -= 1
-		pressure +=.02
-	$enemy_counter_label.text = "Congrats!!"
+		pressure +=.03
+	$enemy_counter_label.text = "Portal Defunct!!"
 	$win_sound.play()
 	await get_tree().create_timer(20.0).timeout
 	get_tree().change_scene_to_file("res://menus/menu.tscn")

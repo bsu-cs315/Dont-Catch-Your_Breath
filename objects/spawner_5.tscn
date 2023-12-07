@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://tgkj7lppyg65"]
+
+[ext_resource type="Script" path="res://objects/spawner_5.gd" id="1_jjkrx"]
+[ext_resource type="Texture2D" uid="uid://d1dgsfhns5gja" path="res://objects/portal.png" id="2_hpq7x"]
+[ext_resource type="AudioStream" uid="uid://dnagd7ayt54kr" path="res://menus/start.wav" id="3_uw3ri"]
+
+[node name="spawner" type="Node2D"]
+script = ExtResource("1_jjkrx")
+
+[node name="enemies" type="Node" parent="."]
+
+[node name="sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.063, 0.063)
+texture = ExtResource("2_hpq7x")
+
+[node name="enemy_counter_label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="win_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_uw3ri")

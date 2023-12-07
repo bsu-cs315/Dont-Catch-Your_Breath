@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c602ucat5dbrm"]
+[gd_scene load_steps=16 format=3 uid="uid://c602ucat5dbrm"]
 
 [ext_resource type="Script" path="res://environment/room_two.gd" id="1_p82hw"]
 [ext_resource type="Texture2D" uid="uid://r76ehfi0ifmr" path="res://environment/wall_solid.png" id="2_s7umu"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://0yfeunujj8bq" path="res://environment/flame1.png" id="6_pdtks"]
 [ext_resource type="Texture2D" uid="uid://bj12b7yu6uhkw" path="res://environment/flame2.png" id="7_btv50"]
 [ext_resource type="Texture2D" uid="uid://ula2fp8vlp87" path="res://environment/flame3.png" id="8_bldjq"]
+[ext_resource type="Texture2D" uid="uid://qmccy7d2ukdp" path="res://environment/crate_guy.png" id="9_w0eut"]
+[ext_resource type="Texture2D" uid="uid://cy36rimo8dd65" path="res://environment/crate_guy2.png" id="10_cox11"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5s5p0"]
 texture = ExtResource("2_s7umu")
@@ -70,6 +72,20 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_d8577"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_w0eut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_cox11")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="room_two" type="Node2D"]
 script = ExtResource("1_p82hw")
 
@@ -113,3 +129,17 @@ animation = &"fire"
 autoplay = "fire"
 frame = 1
 frame_progress = 0.413941
+
+[node name="crate_guy" type="AnimatedSprite2D" parent="."]
+position = Vector2(-929, 773)
+scale = Vector2(0.125, 0.125)
+sprite_frames = SubResource("SpriteFrames_d8577")
+frame = 1
+frame_progress = 0.816572
+
+[node name="help_label" type="Label" parent="."]
+offset_left = -918.0
+offset_top = 557.0
+offset_right = -878.0
+offset_bottom = 580.0
+text = "help! help!"
