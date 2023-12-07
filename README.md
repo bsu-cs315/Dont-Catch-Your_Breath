@@ -3,10 +3,10 @@
 # A demo by Kc Weaver
 
 ## How To Play
-- Use ARROW KEYS to move left and right
-- Use UP ARROW to jump 
+- Use ARROW KEYS or AD to move left and right
+- Use UP ARROW. W, or SPACE to jump 
 - LEFT CLICK for projectile weapon grappling hook
-- Destroy all 40 enemies and survive to win!
+- Fight your way through all 6 levels surviving the hoards!
 
 ## Third-Party Assets
 
@@ -15,10 +15,14 @@ All music and art created by Kc Weaver
 ## Project Report
 
 ### Reflection
-I finally got the hook figured out and added some more mechanics with it. There are no longer glitches or inconsistencies.
-I struggled with particles and raycasting to develop a laser attack for my first enemy. I first tried to copy a similar idea to my grappling hook but didn't find success.
-I then decided to try raycasting and setting up the laser fire on a timer. It took a lot of time to figure out how to use the correct tween and raycast methods.
-For future iterations I will improve on the lasers design and the gameplay experience from start to finish. Something I found success with this iteration was making an objective to protect from the enemies.
+I'm really happy with my final project. I only used one video (being https://www.youtube.com/watch?v=R4XeyJI0_Wk) and the rest of the coding came from practice and knowledge learned during the course.
+The biggest problem I had was time crunch as always. With a few more hours I could fix up the project layout and allow it to become a much bigger game.
+A lot of the coding could also be fixed with more time, but I also wanted to do as much as possible without outside help, leading to the sloppiness.
+With that being said I came out with a demo of what I set out to create that feels like a strong proof of concept. My biggest struggle was finding systems that could use live movement and asynchronus qualities.
+There wasn't one thing I felt that I excelled on, but I felt myself flying through many topics we've covered compared to past iterations and projects.
+This includes tilemaps, animation, player movement, enemy movement, gampeplay loop, tweening, Vector understanding, layout, visual and auditory inclusions, and more.
+I learned a lot about tilemaps and using masks and layers to blend the tilemap into other elements such as bigger set pieces or the player's hook. This was also important to make sure certain enemies appeared in front or beihind of specific layers.
+Everything I've been working on that was difficult finally came together in a fast proccess. I had a particularly enriching time making a sweeping laser with visual effects, and designing enemy ai.
 
 - [x] D-1: The repository contains a <code>README.md</code> file in its top-level directory on the default branch.
 - [x] D-2: The project content is eligible for an <a href="https://www.esrb.org/ratings-guide/">ESRB Rating</a> of M or less.
@@ -29,12 +33,14 @@ For future iterations I will improve on the lasers design and the gameplay exper
 - [x] C-5: The release demonstrates the core gameplay loop: the player can take actions that move them toward a goal.
 - [x] B-1: The project report is complete.
 - [x] B-2: The game includes sound effects (imported from .wav files) and looping music (imported from .ogg files).
-- [] B-3: The game runs without errors or warnings.
-- [] B-4: The source code and project structure comply with our adopted style guides.
-- [] B-5: Clear progress has been made on the game with respect to the project plan.
-- [] A-1: The source code contains no warnings. All warnings are properly addressed, not just ignored.
-- [] A-2: The game includes the conventional player experience loop of title, gameplay, and ending.
+- [X] B-3: The game runs without errors or warnings.
+- [X] B-4: The source code and project structure comply with our adopted style guides.
+- [x] B-5: Clear progress has been made on the game with respect to the project plan.
+- [x] A-1: The source code contains no warnings. All warnings are properly addressed, not just ignored.
+- [x] A-2: The game includes the conventional player experience loop of title, gameplay, and ending.
 - [x] A-3: Earn <em>N</em>*&lceil;<em>P</em>/2&rceil; stars, where <em>N</em> is the iteration number and <em>P</em> is the number of people on the team.
 - [x] ⭐ Include a dynamic (non-static) camera
+- [x] ⭐Use particle effects
+- [x] ⭐Include an AI-controlled character
 
-Therefore, this work merits a C.
+Therefore, this work merits a A.
